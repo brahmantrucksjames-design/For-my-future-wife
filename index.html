@@ -150,6 +150,22 @@ z-index:1;
 transform:scale(1.05);
 }
 
+/* MUSIC BUTTON */
+.music-btn{
+position:fixed;
+top:20px;
+right:20px;
+z-index:20;
+padding:10px 16px;
+border:none;
+border-radius:999px;
+background:rgba(255,77,109,.95);
+color:#fff;
+cursor:pointer;
+font-size:14px;
+box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
 /* LETTER */
 .letter{
 position:fixed;
@@ -220,6 +236,12 @@ font-size:16px;
 </head>
 <body>
 
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()" id="musicBtn">🎵 Play Music</button>
+
 <div class="bg-slides">
 <div class="bg-slide" style="background-image:url('b1.jpg')"></div>
 <div class="bg-slide" style="background-image:url('b2.jpg')"></div>
@@ -238,8 +260,8 @@ font-size:16px;
 
 <div class="letter-image">
 <img src="b1.jpg" alt="Our picture 1">
-<img src="b2.jpg" alt="Our picture 2">
-<img src="b3.jpg" alt="Our picture 3">
+<img src="b22.jpg" alt="Our picture 2">
+<img src="b33.jpg" alt="Our picture 3">
 <img src="b4.jpg" alt="Our picture 4">
 <img src="b5.jpg" alt="Our picture 5">
 </div>
@@ -256,6 +278,7 @@ Bugun biz uchun eng yaxshi kunligini unutmagandirsiz❤️ 2 yil oldin aynan shu
 
 let typingTimer = null;
 let started = false;
+let musicPlaying = false;
 
 function openLetter(){
 document.getElementById("letter").style.display = "flex";
@@ -285,6 +308,20 @@ typingTimer = null;
 }, speed);
 }
 
+function toggleMusic(){
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+if (musicPlaying) {
+music.pause();
+btn.textContent = "🎵 Play Music";
+} else {
+music.play().catch(() => {});
+btn.textContent = "⏸ Pause Music";
+}
+musicPlaying = !musicPlaying;
+}
+
 /* HEARTS */
 function createHeart(){
 const heart = document.createElement("div");
@@ -309,6 +346,9 @@ setTimeout(() => sparkle.remove(), 9000);
 setInterval(createHeart, 400);
 setInterval(createSparkle, 250);
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
