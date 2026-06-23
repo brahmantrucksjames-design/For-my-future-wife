@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -30,6 +29,7 @@ color:#ffb3c1;
 font-size:20px;
 animation:float 8s linear infinite;
 pointer-events:none;
+will-change:transform,opacity;
 }
 
 @keyframes float{
@@ -130,69 +130,63 @@ font-size:16px;
 </div>
 
 <script>
-
 const text = `
-
 Malikam 🫂❤️🫠
 Bugun biz uchun eng yaxshi kunligini unutmagandirsiz❤️ 2 yil oldin aynan shu kun xayotimga moʻjiza kirib kelgan kun xayotimga rang kirgan kun xayotimi xaqiqiy mazmunini topgan kunim yani farishtam sizi uchratgan kunim siz bilan tanishgan kunimiz🫂❤️ bilasizmi malikam siz dunyodegi eng samimiy begʻubor qizligizi tanishgan kunimizi birinchi onidayoq bilgandim❤️🫠 oradan roppa rosa 2 yil vaqt oʻtdi xayotim😘❤️ toʻgʻri bu vaqt orasida koʻp gaplashme qoldik lekin ikkalamiz ham ishonamizki osha paytdayam ruhan birga edik yonimizda tasavvur qildik bir birimizi qalbimiz bilan sevdik ❤️🫂 man bunaqa sevgini xech kimda kormaganman va bizi sevgimizi eng samimiyligiga juda qattiq ishonaman❤️🫂 bilaman koʻp qiyinchiliklarni boshdan oʻtkazdik man sizi koʻp xafa qildim lekin unutmen malikam man xar doim sizi sevaman xurmat qilaman sizi qadriz esa judayam balandda siz man uchun farishtasiz❤️ mojizam❤️ goʻzalim❤️ yoqimtoyim ❤️kichkintoyim❤️ shirincham ❤️asalim❤️ begʻuborim ❤️farishtam❤️ malikam mani 🫠❤️ sizi uchratganimdan beri asl yure qanaqa urushini baxt nimaligi sevgi qanaqa xisligini nimaligini angladim gulim❤️🫂 bilmadim sizsiz xayot umuman qorongʻu boʻlsa kere sizgacha qanaqa yashaganimi ham unutdim❤️ bilaszmi malikam biz xatto xali uchrashmasdan masofadan turib shunchali bir birimizga baxt ulashvomiz ❤️ xali ham birgamiz xuddi uzoqdan urib turgan yuregimizdek ❤️🫀 man ishonaman biz albatta koʻrishamiz va xammasiga rostanam erishsa bolishini isbotlemiz 🫂❤️ siz mani komillikka bogan yoʻlimga oxshesiz malikam iforiz ham jannatniki sizi mingta xurga alishmiman malikam 🫂❤️ inshaAlloh nasib qilsin malikam keyingi 24- iyunda 3 yilligimizi yonizda qulizdan tutib gullar bilan kutib olishimizi❤️🫠 shuncha vaqt ichida sizga xatto arziydigan insonni ishini qilmagan boʻlsam ham mani xar qanaqa vaziyatda yonimda bolganiz uchun xar doim qoʻllab quvvatlaganiz uchun raxmat malikam ❤️xayotimda borligiz uchun raxmat ❤️begʻuborligiz uchun raxmat❤️ xayotim siz judayam yaxshi qizsiz siz dunyodagi eng yaxshi qizsiz 🫠❤️ bilasizmi bugunga mani rejalarim juda kotta edi xozir bu oddiy soʻzlarga oʻxshab tuyular lekin qilmoqchi boʻlganlarim koʻp edi bu safar nimagadir ishlarim ancha vaqt yurishme qoldi lekin bu narsalar kotta rol oʻynamasligini bilaman va bu xayolga ham siz orqali ishonganim uchun sizga rahmat ❤️🫂 yaxshiyam borsiz malikam siz Allohga yaqinlashtiruvchi insonsiz farishtamsiz malikam❤️🫂🫠 ishonasizmi bu yozganlarimni oddiy yozmadim xar bir siz bilan utgan xotiralar bilan eslab yozdim toʻgʻrisi yuzimda tabassum koʻzim nam judayam zoʻr xis ❤️🫠sizi uchratganim uchun Alhamdulillah malikam❤️🫠 shuncha vaqt yonimda bolganiz uchun xali sizi xamma orzularizga yetishtiradigan biri boʻlib oldizga boraman ❤️🫂 balki aynan shu kunlarda qiyin vaziyatga tushib qolganim ham sinovdir gulim chunki xar bir sinov qalbimizi bir birimizga yaqinlashtirvotti ❤️🫠🫂 man sizga ishonaman xar doim ishonaman siz ishonchimi oqlesiz yonizga borgunimcha oʻzizi xammadan asra olasiz🫂❤️ borganimdan keyin oʻzim sizi xamma xammasidan asreman malikam❤️🫠 Xayotimda borligiz uchun raxmat malikam gapiradigan yozadigan gaplarim judayam koʻp va xech bir soʻz gap matn xatto sizga boʻlgan sevgimi bir foizini ham tasvirlab berolmedi ❤️🫂 shunchasini oʻqiganiz uchun ham raxmat malikam bu gaplar mani chin yuregmdan chiqqan sozlardir❤️🫀 bugungi kunimiz unutilmas judayam chiroyli kun boʻlib qolsin xatto 50 yillik 70 yilliklarimizni ham birga nishonlashimiz nasib qilsin inshaAllah malikam sizi judayam qattiq sevaman 🫂❤️ yana bir bor tabrikleman malikam🫠🫠🫠🫠🫠🫠❤️❤️❤️❤️❤️❤️❤️❤️🥳🥳🥳🥳🥳🥳🥳
-
 `;
 
+let typingTimer = null;
+let heartTimer = null;
+let started = false;
+
 function openLetter(){
-document.getElementById("letter").style.display="flex";
+const letter = document.getElementById("letter");
+letter.style.display = "flex";
+
+if (!started) {
+started = true;
 typeWriter();
+}
 }
 
 function closeLetter(){
-document.getElementById("letter").style.display="none";
+document.getElementById("letter").style.display = "none";
 }
-
-let started=false;
 
 function typeWriter(){
+const target = document.getElementById("typedText");
+target.textContent = "";
 
-if(started) return;
+let i = 0;
+const speed = 15;
 
-started=true;
-
-let i=0;
-let target=document.getElementById("typedText");
-
-function typing(){
-if(i<text.length){
-target.innerHTML+=text.charAt(i);
-i++;
-setTimeout(typing,15);
+typingTimer = setInterval(() => {
+if (i < text.length) {
+target.textContent += text.charAt(i++);
+} else {
+clearInterval(typingTimer);
+typingTimer = null;
 }
-}
-
-typing();
+}, speed);
 }
 
 /* HEARTS */
 function createHeart(){
+const heart = document.createElement("div");
+heart.className = "heart";
+heart.textContent = "❤️";
 
-const heart=document.createElement("div");
-
-heart.className="heart";
-heart.innerHTML="❤️";
-
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(15+Math.random()*25)+"px";
-heart.style.animationDuration=(5+Math.random()*5)+"s";
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.fontSize = (15 + Math.random() * 25) + "px";
+heart.style.animationDuration = (5 + Math.random() * 5) + "s";
 
 document.body.appendChild(heart);
 
-setTimeout(()=>{
-heart.remove();
-},10000);
-
+setTimeout(() => heart.remove(), 10000);
 }
 
-setInterval(createHeart,400);
-
+heartTimer = setInterval(createHeart, 400);
 </script>
 
 </body>
 </html>
-```
