@@ -1,131 +1,198 @@
+```html
 <!DOCTYPE html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Malikam 🫂❤️</title>
+<title>Malikam ❤️</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#ff4d6d,#6a11cb,#1a1a40);
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
+font-family:Arial,sans-serif;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff4d6d,#6a11cb,#1a1a40);
 }
 
-/* CLOSED BOX */
+/* HEARTS */
+.heart{
+position:fixed;
+color:#ffb3c1;
+font-size:20px;
+animation:float 8s linear infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+/* OPEN BUTTON */
 .letter-box{
-  width:360px;
-  height:240px;
-  background:#fff;
-  border-radius:18px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.35);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  cursor:pointer;
-  position:relative;
+width:350px;
+height:220px;
+background:white;
+border-radius:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+font-size:28px;
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+transition:.3s;
 }
 
-.letter-box::after{
-  content:"Xatni ochish ❤️";
-  position:absolute;
-  bottom:15px;
-  font-size:14px;
-  color:#555;
+.letter-box:hover{
+transform:scale(1.05);
 }
 
-/* OVERLAY */
+/* LETTER */
 .letter{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.9);
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  opacity:0;
-  pointer-events:none;
-  transition:0.3s ease;
-
-  padding:20px;
-  box-sizing:border-box;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
-.letter.show{
-  opacity:1;
-  pointer-events:auto;
-}
-
-/* CONTENT */
 .letter-content{
-  width: min(900px, 95vw);
-  max-height: 85vh;
-
-  overflow-y:auto;
-
-  background:rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
-
-  padding:25px;
-  border-radius:16px;
-
-  color:white;
-  line-height:1.8;
-
-  white-space:pre-wrap;
-  word-break:break-word;
+width:min(900px,95vw);
+max-height:85vh;
+overflow-y:auto;
+padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(10px);
+color:white;
+line-height:1.8;
 }
 
-/* BUTTON */
+#typedText{
+white-space:pre-wrap;
+}
+
+#typedText::after{
+content:"|";
+animation:blink .8s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:0;
+}
+}
+
 button{
-  margin-top:20px;
-  padding:10px 20px;
-  border:none;
-  border-radius:10px;
-  background:#ff4d6d;
-  color:white;
-  cursor:pointer;
+margin-top:20px;
+padding:12px 24px;
+border:none;
+border-radius:10px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+font-size:16px;
 }
 </style>
 </head>
-
 <body>
 
-<div class="letter-box" onclick="openLetter()"></div>
+<div class="letter-box" onclick="openLetter()">
+💌 XATNI OCHISH ❤️
+</div>
 
-<div class="letter" id="letter" onclick="outsideClose(event)">
-  <div class="letter-content">
+<div class="letter" id="letter">
+<div class="letter-content">
+<div id="typedText"></div>
 
-Malikam 🫂❤️🫠
-Bugun biz uchun eng yaxshi kunligini unutmagandirsiz❤️ 2 yil oldin aynan shu kun xayotimga moʻjiza kirib kelgan kun...
-
- xayotimga moʻjiza kirib kelgan kun xayotimga rang kirgan kun xayotimi xaqiqiy mazmunini topgan kunim yani farishtam sizi uchratgan kunim siz bilan tanishgan kunimiz🫂❤️ bilasizmi malikam siz dunyodegi eng samimiy begʻubor qizligizi tanishgan kunimizi birinchi onidayoq bilgandim❤️🫠 oradan roppa rosa 2 yil vaqt oʻtdi xayotim😘❤️ toʻgʻri bu vaqt orasida koʻp gaplashme qoldik lekin ikkalamiz ham ishonamizki osha paytdayam ruhan birga edik yonimizda tasavvur qildik bir birimizi qalbimiz bilan sevdik ❤️🫂 man bunaqa sevgini xech kimda kormaganman va bizi sevgimizi eng samimiyligiga juda qattiq ishonaman❤️🫂 bilaman koʻp qiyinchiliklarni boshdan oʻtkazdik man sizi koʻp xafa qildim lekin unutmen malikam man xar doim sizi sevaman xurmat qilaman sizi qadriz esa judayam balandda siz man uchun farishtasiz❤️ mojizam❤️ goʻzalim❤️ yoqimtoyim ❤️kichkintoyim❤️ shirincham ❤️asalim❤️ begʻuborim ❤️farishtam❤️ malikam mani 🫠❤️ sizi uchratganimdan beri asl yure qanaqa urushini baxt nimaligi sevgi qanaqa xisligini nimaligini angladim gulim❤️🫂 bilmadim sizsiz xayot umuman qorongʻu boʻlsa kere sizgacha qanaqa yashaganimi ham unutdim❤️ bilaszmi malikam biz xatto xali uchrashmasdan masofadan turib shunchali bir birimizga baxt ulashvomiz ❤️ xali ham birgamiz xuddi uzoqdan urib turgan yuregimizdek ❤️🫀 man ishonaman biz albatta koʻrishamiz va xammasiga rostanam erishsa bolishini isbotlemiz 🫂❤️ siz mani komillikka bogan yoʻlimga oxshesiz malikam iforiz ham jannatniki sizi mingta xurga alishmiman malikam 🫂❤️ inshaAlloh nasib qilsin malikam keyingi 24- iyunda 3 yilligimizi yonizda qulizdan tutib gullar bilan kutib olishimizi❤️🫠 shuncha vaqt ichida sizga xatto arziydigan insonni ishini qilmagan boʻlsam ham mani xar qanaqa vaziyatda yonimda bolganiz uchun xar doim qoʻllab quvvatlaganiz uchun raxmat malikam ❤️xayotimda borligiz uchun raxmat ❤️begʻuborligiz uchun raxmat❤️ xayotim siz judayam yaxshi qizsiz siz dunyodagi eng yaxshi qizsiz 🫠❤️ bilasizmi bugunga mani rejalarim juda kotta edi xozir bu oddiy soʻzlarga oʻxshab tuyular lekin qilmoqchi boʻlganlarim koʻp edi bu safar nimagadir ishlarim ancha vaqt yurishme qoldi lekin bu narsalar kotta rol oʻynamasligini bilaman va bu xayolga ham siz orqali ishonganim uchun sizga rahmat ❤️🫂 yaxshiyam borsiz malikam siz Allohga yaqinlashtiruvchi insonsiz farishtamsiz malikam❤️🫂🫠 ishonasizmi bu yozganlarimni oddiy yozmadim xar bir siz bilan utgan xotiralar bilan eslab yozdim toʻgʻrisi yuzimda tabassum koʻzim nam judayam zoʻr xis ❤️🫠sizi uchratganim uchun Alhamdulillah malikam❤️🫠 shuncha vaqt yonimda bolganiz uchun xali sizi xamma orzularizga yetishtiradigan biri boʻlib oldizga boraman ❤️🫂 balki aynan shu kunlarda qiyin vaziyatga tushib qolganim ham sinovdir gulim chunki xar bir sinov qalbimizi bir birimizga yaqinlashtirvotti ❤️🫠🫂 man sizga ishonaman xar doim ishonaman siz ishonchimi oqlesiz yonizga borgunimcha oʻzizi xammadan asra olasiz🫂❤️ borganimdan keyin oʻzim sizi xamma xammasidan asreman malikam❤️🫠 Xayotimda borligiz uchun raxmat malikam gapiradigan yozadigan gaplarim judayam koʻp va xech bir soʻz gap matn xatto sizga boʻlgan sevgimi bir foizini ham tasvirlab berolmedi ❤️🫂 shunchasini oʻqiganiz uchun ham raxmat malikam bu gaplar mani chin yuregmdan chiqqan sozlardir❤️🫀 bugungi kunimiz unutilmas judayam chiroyli kun boʻlib qolsin xatto 50 yillik 70 yilliklarimizni ham birga nishonlashimiz nasib qilsin inshaAllah malikam sizi judayam qattiq sevaman 🫂❤️ yana bir bor tabrikleman malikam🫠🫠🫠🫠🫠🫠❤️❤️❤️❤️❤️❤️❤️❤️🥳🥳🥳🥳🥳🥳🥳
-
-  <button onclick="closeLetter()">Yopish ❤️</button>
-  </div>
+<button onclick="closeLetter()">Yopish ❤️</button>
+</div>
 </div>
 
 <script>
+
+const text = `
+
+Malikam 🫂❤️🫠
+Bugun biz uchun eng yaxshi kunligini unutmagandirsiz❤️ 2 yil oldin aynan shu kun xayotimga moʻjiza kirib kelgan kun xayotimga rang kirgan kun xayotimi xaqiqiy mazmunini topgan kunim yani farishtam sizi uchratgan kunim siz bilan tanishgan kunimiz🫂❤️ bilasizmi malikam siz dunyodegi eng samimiy begʻubor qizligizi tanishgan kunimizi birinchi onidayoq bilgandim❤️🫠 oradan roppa rosa 2 yil vaqt oʻtdi xayotim😘❤️ toʻgʻri bu vaqt orasida koʻp gaplashme qoldik lekin ikkalamiz ham ishonamizki osha paytdayam ruhan birga edik yonimizda tasavvur qildik bir birimizi qalbimiz bilan sevdik ❤️🫂 man bunaqa sevgini xech kimda kormaganman va bizi sevgimizi eng samimiyligiga juda qattiq ishonaman❤️🫂 bilaman koʻp qiyinchiliklarni boshdan oʻtkazdik man sizi koʻp xafa qildim lekin unutmen malikam man xar doim sizi sevaman xurmat qilaman sizi qadriz esa judayam balandda siz man uchun farishtasiz❤️ mojizam❤️ goʻzalim❤️ yoqimtoyim ❤️kichkintoyim❤️ shirincham ❤️asalim❤️ begʻuborim ❤️farishtam❤️ malikam mani 🫠❤️ sizi uchratganimdan beri asl yure qanaqa urushini baxt nimaligi sevgi qanaqa xisligini nimaligini angladim gulim❤️🫂 bilmadim sizsiz xayot umuman qorongʻu boʻlsa kere sizgacha qanaqa yashaganimi ham unutdim❤️ bilaszmi malikam biz xatto xali uchrashmasdan masofadan turib shunchali bir birimizga baxt ulashvomiz ❤️ xali ham birgamiz xuddi uzoqdan urib turgan yuregimizdek ❤️🫀 man ishonaman biz albatta koʻrishamiz va xammasiga rostanam erishsa bolishini isbotlemiz 🫂❤️ siz mani komillikka bogan yoʻlimga oxshesiz malikam iforiz ham jannatniki sizi mingta xurga alishmiman malikam 🫂❤️ inshaAlloh nasib qilsin malikam keyingi 24- iyunda 3 yilligimizi yonizda qulizdan tutib gullar bilan kutib olishimizi❤️🫠 shuncha vaqt ichida sizga xatto arziydigan insonni ishini qilmagan boʻlsam ham mani xar qanaqa vaziyatda yonimda bolganiz uchun xar doim qoʻllab quvvatlaganiz uchun raxmat malikam ❤️xayotimda borligiz uchun raxmat ❤️begʻuborligiz uchun raxmat❤️ xayotim siz judayam yaxshi qizsiz siz dunyodagi eng yaxshi qizsiz 🫠❤️ bilasizmi bugunga mani rejalarim juda kotta edi xozir bu oddiy soʻzlarga oʻxshab tuyular lekin qilmoqchi boʻlganlarim koʻp edi bu safar nimagadir ishlarim ancha vaqt yurishme qoldi lekin bu narsalar kotta rol oʻynamasligini bilaman va bu xayolga ham siz orqali ishonganim uchun sizga rahmat ❤️🫂 yaxshiyam borsiz malikam siz Allohga yaqinlashtiruvchi insonsiz farishtamsiz malikam❤️🫂🫠 ishonasizmi bu yozganlarimni oddiy yozmadim xar bir siz bilan utgan xotiralar bilan eslab yozdim toʻgʻrisi yuzimda tabassum koʻzim nam judayam zoʻr xis ❤️🫠sizi uchratganim uchun Alhamdulillah malikam❤️🫠 shuncha vaqt yonimda bolganiz uchun xali sizi xamma orzularizga yetishtiradigan biri boʻlib oldizga boraman ❤️🫂 balki aynan shu kunlarda qiyin vaziyatga tushib qolganim ham sinovdir gulim chunki xar bir sinov qalbimizi bir birimizga yaqinlashtirvotti ❤️🫠🫂 man sizga ishonaman xar doim ishonaman siz ishonchimi oqlesiz yonizga borgunimcha oʻzizi xammadan asra olasiz🫂❤️ borganimdan keyin oʻzim sizi xamma xammasidan asreman malikam❤️🫠 Xayotimda borligiz uchun raxmat malikam gapiradigan yozadigan gaplarim judayam koʻp va xech bir soʻz gap matn xatto sizga boʻlgan sevgimi bir foizini ham tasvirlab berolmedi ❤️🫂 shunchasini oʻqiganiz uchun ham raxmat malikam bu gaplar mani chin yuregmdan chiqqan sozlardir❤️🫀 bugungi kunimiz unutilmas judayam chiroyli kun boʻlib qolsin xatto 50 yillik 70 yilliklarimizni ham birga nishonlashimiz nasib qilsin inshaAllah malikam sizi judayam qattiq sevaman 🫂❤️ yana bir bor tabrikleman malikam🫠🫠🫠🫠🫠🫠❤️❤️❤️❤️❤️❤️❤️❤️🥳🥳🥳🥳🥳🥳🥳
+
+`;
+
 function openLetter(){
-  document.getElementById("letter").classList.add("show");
+document.getElementById("letter").style.display="flex";
+typeWriter();
 }
 
 function closeLetter(){
-  document.getElementById("letter").classList.remove("show");
+document.getElementById("letter").style.display="none";
 }
 
-function outsideClose(e){
-  if(e.target.id === "letter"){
-    closeLetter();
-  }
+let started=false;
+
+function typeWriter(){
+
+if(started) return;
+
+started=true;
+
+let i=0;
+let target=document.getElementById("typedText");
+
+function typing(){
+if(i<text.length){
+target.innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,15);
 }
+}
+
+typing();
+}
+
+/* HEARTS */
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*25)+"px";
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+
+}
+
+setInterval(createHeart,400);
+
 </script>
 
 </body>
 </html>
+```
