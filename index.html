@@ -240,6 +240,10 @@ font-size:16px;
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
+<audio id="bgMusic2" loop>
+<source src="music2.mp3" type="audio/mpeg">
+</audio>
+
 <button class="music-btn" onclick="toggleMusic()" id="musicBtn">🎵 Play Music</button>
 
 <div class="bg-slides">
@@ -282,6 +286,7 @@ let musicPlaying = false;
 
 function openLetter(){
 document.getElementById("letter").style.display = "flex";
+playBothMusic();
 if (!started) {
 started = true;
 typeWriter();
@@ -308,15 +313,34 @@ typingTimer = null;
 }, speed);
 }
 
+function playBothMusic(){
+const music1 = document.getElementById("bgMusic");
+const music2 = document.getElementById("bgMusic2");
+const btn = document.getElementById("musicBtn");
+
+music1.volume = 1;
+music2.volume = 0.25;
+
+music1.play().catch(() => {});
+music2.play().catch(() => {});
+btn.textContent = "⏸ Pause Music";
+musicPlaying = true;
+}
+
 function toggleMusic(){
-const music = document.getElementById("bgMusic");
+const music1 = document.getElementById("bgMusic");
+const music2 = document.getElementById("bgMusic2");
 const btn = document.getElementById("musicBtn");
 
 if (musicPlaying) {
-music.pause();
+music1.pause();
+music2.pause();
 btn.textContent = "🎵 Play Music";
 } else {
-music.play().catch(() => {});
+music1.play().catch(() => {});
+music2.play().catch(() => {});
+music1.volume = 1;
+music2.volume = 0.25;
 btn.textContent = "⏸ Pause Music";
 }
 musicPlaying = !musicPlaying;
